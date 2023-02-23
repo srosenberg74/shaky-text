@@ -14,25 +14,59 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.content-holder {
+  animation: shake infinite 2s;
+  border: 4px solid black;
+  padding: 12px;
+  width: 25rem;
+  font-size: 4rem;
+  perspective: 800px;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateY(0px);
   }
-  to {
-    transform: rotate(360deg);
+  28% {
+    transform: translateY(-20px);
+  }
+  29% {
+    transform: translateY(12px);
+  }
+  30% {
+    transform: translateY(0px);
+  }
+}
+
+.content-holder::after {
+  content: "Artist";
+  animation-name: change-content;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes change-content {
+  0% {
+    content: "Artist";
+  }
+  33% {
+    content: "Filmmaker";
+  }
+  67% {
+    content: "Programmer";
   }
 }
